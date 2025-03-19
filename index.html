@@ -3,18 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Risk Data Library</title>
+  <title>SAR Risk Data Library</title>
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
   <header>
-    <h1>Risk Data Library - SAR Focus (v0.1)</h1>
+    <h1>SAR Risk Data Library</h1>
     <p>Your one-stop resource for standardized disaster and hazard data</p>
   </header>
 
   <main>
-    <section class="search-section">
-      <input type="text" id="searchInput" placeholder="Search datasets..." />
+    <section class="controls">
+      <input type="text" id="searchInput" placeholder="🔍 Search datasets..." />
+      
+      <select id="dataTypeFilter">
+        <option value="">All Data Types</option>
+        <option>Disaster risk</option>
+        <option>Geospatial</option>
+        <option>Climate</option>
+        <option>Flood/Hydrology</option>
+        <option>Socioeconomic</option>
+        <option>Hazard-specific</option>
+        <option>Regional</option>
+        <option>Multi-hazard</option>
+        <option>Mapping</option>
+        <option>Population</option>
+        <option>Biodiversity/Ecology</option>
+      </select>
+
+      <button class="filter-btn" data-filter="">Show All</button>
+      <button class="filter-btn" data-filter="Open access">Open Access</button>
+      <button class="filter-btn" data-filter="Commercial access">Commercial Access</button>
+      <button class="filter-btn" data-filter="Real-time">Real-time Updates</button>
     </section>
 
     <section class="table-section">
@@ -22,28 +42,27 @@
         <thead>
           <tr>
             <th>Data Type</th>
-            <th>Data Source Name</th>
+            <th>Source</th>
             <th>Dataset Name</th>
             <th>Hazard Type</th>
-            <th>Coverage Area</th>
-            <th>Temporal Coverage</th>
-            <th>Data Format</th>
-            <th>Frequency of Updates</th>
-            <th>Data Quality</th>
-            <th>Data Accessibility</th>
-            <th>Licensing &amp; Restrictions</th>
-            <th>URL / Access Point</th>
-            <th>Contact Information</th>
-            <th>Remarks / Notes</th>
-            <th>Last Updated</th>
+            <th>Coverage</th>
+            <th>Format</th>
+            <th>Accessibility</th>
+            <th>More Info</th>
           </tr>
         </thead>
-        <tbody>
-          <!-- Data rows will be inserted here by JavaScript -->
-        </tbody>
+        <tbody></tbody>
       </table>
     </section>
   </main>
+
+  <!-- Modal for detailed dataset info -->
+  <div id="detailModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
 
   <footer>
     <p>&copy; 2025 SAR Risk Data Library. All rights reserved.</p>
